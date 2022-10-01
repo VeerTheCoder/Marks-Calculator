@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="marks.css">
+</head>
+<body>
+<header>
+	<div class="box">
+		<div class="upper">
+		<div class="content">Marks<br> Calculator</div>
+		<div class="marks">
+			<h2>Enter Marks:-</h2>
+			<div class="inputbox">
+			<input type="number" id="phy" required><label>Physics</label></div>
+			<div class="inputbox"><input type="number" id="che" required><label>Chemistry</label></div>
+			<div class="inputbox"><input type="number" id="math" required><label>Math</label></div>
+			<div class="inputbox"><input type="number" id="hin" required><label>Hindi</label></div>
+			<div class="inputbox"><input type="number" id="eng" required><label>English</label></div>
+		</div>
+		</div>
+		<button onclick="answer()">CHECK</button>
+		<div class="msg">
+		<h2>Total Marks:- <span id="tot">0</span></h2>
+		<h2>Percentage:- <span id="avg">0</span></h2>
+		<h2>Grade:- <span id="grd">non</span></h2>
+	   </div>
+	</div>
+</header>
+<script type="text/javascript">
+	answer=()=>{
+		p=parseInt(document.getElementById('phy').value);
+		c=parseInt(document.getElementById('che').value);
+		m=parseInt(document.getElementById('math').value);
+	 	h=parseInt(document.getElementById('hin').value);
+		e=parseInt(document.getElementById('eng').value);
+		if (p<=100 && c<=100 && m<=100 && h<=100 && e<=100) {
+		let ans=p+c+m+h+e;
+		let avg=ans/5;
+		let g=document.getElementById('grd');
+
+			document.getElementById('tot').innerText=ans;
+			document.getElementById('avg').innerText=avg+"%";
+			//to find the grade
+			if(avg>=95 && avg<=100){
+				g.innerText="A+";
+			}
+			else if(avg>=90 && avg<=94){
+				g.innerText="A";
+			}
+			else if(avg>=80 && avg<=89){
+				g.innerText="B+";
+			}
+			else if(avg>=70 && avg<=79){
+				g.innerText="B";
+			}
+			else if(avg>=60 && avg<=69){
+				g.innerText="C+";
+			}
+			else if(avg>=50 && avg<=59){
+				g.innerText="C";
+			}
+			else if(avg>=40 && avg<=49){
+				g.innerText="D+";
+			}
+			else if(avg>=30 && avg<=39){
+				g.innerText="D";
+			}
+			else{
+				g.innerText="F";
+			}
+	}
+	else if(p>=100 || c>=100 || m>=100 || h>=100 || e>=100){
+		alert("Each marks should be under 101");
+	}
+	else{
+		alert("Every field is required");
+	}
+	}
+</script>
+</body>
+</html>
